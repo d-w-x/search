@@ -21,7 +21,7 @@ header('Access-Control-Allow-Headers:x-requested-with,content-type');
 
 $jsonlist = array();
 for ($i = 0; $i < 5; $i++) {
-    $jsonResult = json_decode(file_get_contents("https://api.dongmanxingkong.com/suijitupian/acg/1080p/index.php?return=json"))->imgurl;
+    $jsonResult = json_decode(file_get_contents("https://img.paulzzh.com/touhou/random?type=json"))->jpegurl;
     $jsonlist [] =  $jsonResult;
 }
 echo $_GET["callback"] . json_encode($jsonlist);

@@ -20,8 +20,12 @@ header('Access-Control-Allow-Methods:POST');
 header('Access-Control-Allow-Headers:x-requested-with,content-type');
 
 $jsonlist = array();
-for ($i = 0; $i < 5; $i++) {
-    $jsonResult = json_decode(file_get_contents("https://api.dongmanxingkong.com/suijitupian/acg/1080p/index.php?return=json"))->imgurl;
+for ($i = 0; $i < 2; $i++) {
+    $jsonResult = json_decode(file_get_contents("https://tuapi.eees.cc/api.php?type=json&category=meinv"))->img;
+    $jsonlist [] =  $jsonResult;
+    $jsonResult = json_decode(file_get_contents("https://tuapi.eees.cc/api.php?type=json&category=fengjing"))->img;
+    $jsonlist [] =  $jsonResult;
+    $jsonResult = json_decode(file_get_contents("https://tuapi.eees.cc/api.php?type=json&category=dongman"))->img;
     $jsonlist [] =  $jsonResult;
 }
 echo $_GET["callback"] . json_encode($jsonlist);
